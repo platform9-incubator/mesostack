@@ -1,0 +1,35 @@
+{
+  "id": "/keystone-du-10.4.253.176",
+  "cmd": "/root/pf9/bin/keystone_wrapper.sh",
+  "cpus": 0.1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "healthChecks": [
+    {
+      "protocol": "COMMAND",
+      "command": {
+        "value": "curl -s http://$HOST:5000/v3"
+      },
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10000,
+      "protocol": "tcp",
+      "name": "keystone-main",
+      "labels": {}
+    },
+    {
+      "port": 10001,
+      "protocol": "tcp",
+      "name": "keystone-admin",
+      "labels": {}
+    }
+  ]
+}

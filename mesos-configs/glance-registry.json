@@ -1,0 +1,15 @@
+{
+  "id": "/glance-registry-10.4.253.176",
+  "cmd": "/root/pf9/bin/glance-registry --config-file /root/pf9/etc/glance/glance-registry.conf",
+  "cpus": 1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "portDefinitions": [
+    {
+      "port": 10002,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "/glance-api-10.4.253.176",
+  "cmd": "/root/pf9/bin/glance-api --config-file /root/pf9/etc/glance/glance-api.conf",
+  "cpus": 1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "healthChecks": [
+    {
+      "protocol": "COMMAND",
+      "command": {
+        "value": "curl -s http://$HOST:9292/"
+      },
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 9292,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ]
+}
